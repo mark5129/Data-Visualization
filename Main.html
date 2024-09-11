@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flights in Australia</title>
+    <!-- Vega-Lite and Vega-Embed dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .chart {
+            margin: 30px auto;
+            width: 600px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Vega-Lite Graphs</h1>
+
+    <!-- Container for the first Vega-Lite graph -->
+    <div id="chart1" class="chart"></div>
+
+    <script type="text/javascript">
+        // Vega-Lite specification for a simple bar chart
+        var chart1Spec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "description": "A simple bar chart with embedded data.",
+            "data": {
+                "values": [
+                    {"category": "A", "value": 28},
+                    {"category": "B", "value": 55},
+                    {"category": "C", "value": 43},
+                    {"category": "D", "value": 91},
+                    {"category": "E", "value": 81},
+                    {"category": "F", "value": 53},
+                    {"category": "G", "value": 19},
+                    {"category": "H", "value": 87}
+                ]
+            },
+            "mark": "bar",
+            "encoding": {
+                "x": {"field": "category", "type": "nominal", "axis": {"labelAngle": 0}},
+                "y": {"field": "value", "type": "quantitative"}
+            }
+        };
+
+        // Embed the chart into the specified container
+        vegaEmbed('#chart1', chart1Spec);
+    </script>
+</body>
+</html>
