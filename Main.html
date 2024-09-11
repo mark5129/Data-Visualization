@@ -56,5 +56,56 @@
         // Embed the chart into the specified container
         vegaEmbed('#chart1', chart1Spec);
     </script>
+
+    
+    <h2>Flight Distribution by Australian City</h2>
+    
+    <!-- Container for the chart -->
+    <div id="vis"></div>
+    
+    <script type="text/javascript">
+      const flightDataUrl = "https://raw.githubusercontent.com/mark5129/Data-Visualization/main/Flight_Data.csv";
+    
+      vegaEmbed("#vis", {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "data": {
+          "url": flightDataUrl,
+          "format": {"type": "csv"}
+        },
+        "mark": "bar",
+        "encoding": {
+          "x": {"field": "Australian_City", "type": "nominal", "axis": {"labelAngle": 0}, "title": "Australian City"},
+          "y": {"aggregate": "count", "type": "quantitative", "title": "Number of Flights"},
+          "color": {"field": "Australian_City", "type": "nominal"}
+        },
+        "transform": [
+          {
+            "filter": "datum.Year == 2003"  <!-- Initial year filter -->
+          }
+        ],
+        "title": "Flight Distribution by Australian City",
+        "width": 800,
+        "height": 400
+      }).then(result => {
+        const view = result.view;
+    
+        // Create a slider
+        const slider = document.createElement("input");
+        slider.type = "range";
+        slider.min = "2003";
+        slider.max = "2007";
+        slider.value = "2003";
+        slider.step = "1";
+        slider.style = "width: 100%; margin-top: 20px;";
+    
+        document.body.appendChild(slider);
+    
+        slider.oninput = function () {
+          const year = parseInt(this.value);
+          view.signal('Year', year).run();  // Update the chart based on the slider value
+        };
+      });
+    </script>
+    
 </body>
 </html>
