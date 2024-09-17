@@ -8,6 +8,20 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <!-- Import pure.css-->
+    <link 
+      rel="stylesheet" 
+      href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" 
+      integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" 
+      crossorigin="anonymous"
+    >
+    <!-- CSS file-->
+    <link 
+      rel="stylesheet" 
+      type="text/css" 
+      href="css/styles.css" 
+      media="all"
+    >
 
     <style>
         body {
@@ -25,29 +39,56 @@
     </style>
 </head>
 <body>
-    <h1>Flights in Australia</h1>
+  <div class="page">
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1>Flights in Australia</h1>
+        <p> This page will show data for Australian airports and their international connections</p>
+      </div>
+    </div> <!-- this is the end of a row "pure-g"-->
+    <!-- ------------------------------------------------------------------------------------------------------------>
+    <!-- End of one row of visuals-->
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="description description-left">
+          <h2>Size of Australian airports</h2>
+          <p>Before assessing the different connections from each airport it is relevant to compare the sizes of the airports as well as the city in which they are located at.</p>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <!-- Container for the first Vega-Lite graph -->
+        <div id="barchart" class="vis-container vega-embed"></div>
 
-    <!-- Container for the first Vega-Lite graph -->
-    <div id="barchart" class="chart"></div>
+        <script src="Barchart.js"></script>
+      </div>
+    </div> <!-- this is the end of a row "pure-g"-->
+    <!-- ------------------------------------------------------------------------------------------------------------>
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="description description-left">
+          <h3>Flight Distribution by Australian City</h3>
 
-    <script src="Barchart.js"></script>
-<!-- ------------------------------------------------------------------------------------>
+          <!-- Container for the chart -->
+          <div id="barchart2_with_slider"></div>
+          
+          <script src="Barchart_chat.js"></script>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <h3>Bubble Chart Visualization</h3>
 
-    <h3>Flight Distribution by Australian City</h3>
+        <div id="Bubblevis"></div>
 
-    <!-- Container for the chart -->
-    <div id="barchart2_with_slider"></div>
+        <script src="Bubblevis.js"></script>
+      </div>
+    </div>
+    <!-- ------------------------------------------------------------------------------------------------------------>
+
+
+
+
+  </div> <!-- This is the end of the "page"-->
     
-    <script src="Barchart_chat.js"></script>
-<!-- ------------------------------------------------------------------------------------>
 
-    <h3>Bubble Chart Visualization</h3>
-
-    <div id="Bubblevis"></div>
-
-    <script src="Bubblevis.js"></script>
-
-<!-- ------------------------------------------------------------------------------------>
-    
 </body>
 </html>

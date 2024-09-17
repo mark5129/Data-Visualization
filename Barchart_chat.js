@@ -8,7 +8,7 @@ const barchart2 = {
         },
         "mark": "bar",
         "encoding": {
-          "x": {"field": "Australian_City", "type": "nominal", "axis": {"labelAngle": 0}, "title": "Australian City"},
+          "x": {"field": "Australian City", "type": "nominal", "axis": {"labelAngle": 0}, "title": "Australian City"},
           "y": {"aggregate": "count", "type": "quantitative", "title": "Number of Flights"},
           "color": {"field": "Australian_City", "type": "nominal"}
         },
