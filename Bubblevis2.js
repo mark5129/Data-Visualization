@@ -6,7 +6,7 @@ const spec = {
     "title" : "Flights in Australia"
     ,
     "data" : {
-    "url" : "https://github.com/mark5129/Data-Visualization/blob/main/Flight_Data_AUS_city.csv"
+    "url" : "https://raw.githubusercontent.com/mark5129/Data-Visualization/main/Flight_Data_AUS_city.csv"
     },
     "params" : [
         {
