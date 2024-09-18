@@ -20,9 +20,8 @@ const chart1Spec = {
             "axis" : { "tickCount" : 7 },
             "scale" : { "type" : "log",
                     "domain" : [ 1 , 100000 ]}
-            }
-    },
-    "color" : {
+            },
+        "color" : {
             "field" : "Australia_City",
             "type" : "nominal",
             "scale" : {
@@ -55,6 +54,10 @@ const chart1Spec = {
                     "#b15928", 
                     "#8dd3c7"]
             }
+        },
+        "tooltip" : [
+            { "field" : "All_Flights","type" : "quantitative","format" : "," }
+            ]
     }
 };
 
