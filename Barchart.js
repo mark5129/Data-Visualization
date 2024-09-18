@@ -17,6 +17,7 @@ const chart1Spec = {
             "field": "All_Flights", 
             "type": "quantitative",
             "label" : "Number of Flights",
+            "axis" : { "tickCount" : 7 },
             "scale" : { "type" : "log",
                     "domain" : [ 1 , 100000 ]}
             }
