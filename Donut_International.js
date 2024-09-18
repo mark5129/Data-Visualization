@@ -31,6 +31,14 @@ const donut_i ={
             "calculate": "datum.FlightCount + '  ' + datum.International_City",
             "as": "AirlineWithCount"
           },
+          {
+            "window": [{"op": "sum", "field": "FlightCount", "as": "TotalFlights"}],
+            "frame": [null, null]
+        },
+        {
+            "calculate": "round((datum.FlightCount / datum.TotalFlights) * 100 * 100) / 100",
+            "as": "Percentage"
+          },
     ],
     "selection" : {
         "City_highlight" : {
@@ -56,7 +64,8 @@ const donut_i ={
         },
         "tooltip": [
             {"field": "International_City", "type": "nominal", "title": "International City"},
-            {"field": "FlightCount", "type": "quantitative", "title": "Count"}
+            {"field": "FlightCount", "type": "quantitative", "title": "Count"},
+            {"field": "Percentage", "type": "quantitative", "title": "Percentage"}
         ]
     }
 }

@@ -1,6 +1,6 @@
 const spec2 = {
     "$schema" : "https://vega.github.io/schema/vega-lite/v5.json",
-    "width" : 400 ,
+    "width" : 300 ,
     "height" : 300 ,
     //"title" : "Flights in Australia",
     "data" : {
@@ -10,6 +10,7 @@ const spec2 = {
         {
             "name" : "State_selection",
             "title" : "State Selection: ",
+            "label" : "State",
             "bind" : {
                 "input" : "select",
                 "options" : [
@@ -68,6 +69,7 @@ const spec2 = {
             },
         "color" : {
             "field" : "AUS_State",
+            "title" : "State",
             "type" : "nominal",
             "scale" : {
                 "domain" : [
@@ -93,7 +95,7 @@ const spec2 = {
         },
         "opacity" : {
             "condition" : { 
-                "selection" : "State_highlight","value" : 0.6 
+                "selection" : "State_highlight","value" : 1 
             },
                 "value" : 0.2
         },
@@ -104,7 +106,7 @@ const spec2 = {
             "scale" : {
                 "type" : "threshold",
                 "domain" : [ 1, 2, 3, 4 ],
-                "range" : [ 10 , 50 , 150 , 200 ]},
+                "range" : [ 100 , 300 , 500 , 700 , 900]},
             "legend" : { "format" : ".1s" }
         },
         "tooltip" : [

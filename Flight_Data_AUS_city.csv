@@ -1,14 +1,14 @@
-Australian_City,All_Flights,Total_Seats,AUS_Population,AUS_State,State_airports
-Adelaide,5710,1460553,1379280,South Australia (SA), 1
-Brisbane,36337,8762293,2536449,Queensland (QLD), 4
-Cairns,4607,929423,158178,Queensland (QLD), 4
-Canberra,1455,448404,477567,Australian Capital Territory (ACT), 1
-Darwin,2108,352905,135982,Northern Territory (NT), 1
-Gold Coast,4974,1208448,742600,Queensland (QLD), 4
-Melbourne,54483,15088308,5315600,Victoria (VIC), 1
-Newcastle,74,13024,465145,New South Wales (NSW), 2
-Norfolk Island,36,1584,1748,External Territory (ET), 1
-Perth,21637,5540124,2143491,Western Australia (WA), 2
-Port Hedland,102,17952,15044,Western Australia (WA), 2
-Sunshine Coast,125,20218,370828,Queensland (QLD), 4
-Sydney,81389,23048251,5184896,New South Wales (NSW), 2
+Australian_City,All_Flights,Total_Seats,AUS_Population,AUS_State,State_airports,Latitude,Longitude
+Adelaide,5710,1460553,1379280,South Australia (SA),1,-34.9285,138.6007
+Brisbane,36337,8762293,2536449,Queensland (QLD),4,-27.4698,153.0251
+Cairns,4607,929423,158178,Queensland (QLD),4,-16.9186,145.7781
+Canberra,1455,448404,477567,Australian Capital Territory (ACT),1,-35.2809,149.13
+Darwin,2108,352905,135982,Northern Territory (NT),1,-12.4634,130.8456
+Gold Coast,4974,1208448,742600,Queensland (QLD),4,-28.0167,153.4
+Melbourne,54483,15088308,5315600,Victoria (VIC),1,-37.8136,144.9631
+Newcastle,74,13024,465145,New South Wales (NSW),2,-32.9283,151.7817
+Norfolk Island,36,1584,1748,External Territory (ET),1,-29.0333,167.95
+Perth,21637,5540124,2143491,Western Australia (WA),2,-31.9505,115.8605
+Port Hedland,102,17952,15044,Western Australia (WA),2,-20.3104,118.606
+Sunshine Coast,125,20218,370828,Queensland (QLD),4,-26.65,153.0667
+Sydney,81389,23048251,5184896,New South Wales (NSW),2,-33.8688,151.2093

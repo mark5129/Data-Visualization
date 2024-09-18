@@ -20,12 +20,12 @@
       rel="stylesheet" 
       type="text/css" 
       href="css/styles.css" 
-      media="all"
+      media="all" 
     >
 
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 20px auto;
             width: 100%; /* Make the body span the entire width */
             max-width: 1000px;
@@ -120,19 +120,30 @@
 
         <p> A switch is created to switch between the number of routes going from Australia to international cities or the number of routes flown by any airline company</p>
         
+        <p> One can investigate which cities or airlines have the most international flights from australia, the legend is sorted descending, to properly show the differences</p>
       </div>
     </div>
 
     <!-- ---------------------------------------------------------------------------------------------------------- -->
-  <div class="pure-g"></div>
-    <div class="pure-u-1-1">
-      <h3>Total flights compared to Population of city</h3>
+    <div class="pure-g"></div>
+      <div class="pure-u-1-1">
+        <h3>Total flights compared to Population of city</h3>
 
-      <div id="Bubblevis2"></div>
+        <div id="Bubblevis2"></div>
 
-        <script src="Bubblevis2.js"></script>
-    </div>
-  </div> <!-- this is the end of a row "pure-g"-->
+          <script src="Bubblevis2.js"></script>
+      </div>
+    </div> <!-- this is the end of a row "pure-g"-->
+    <!-- ---------------------------------------------------------------------------------------------------------- -->
+    <div class="pure-g"></div>
+      <div class="pure-u-1-1">
+        <h3>Total flights compared to Population of city</h3>
+
+        <div id="map_projection"></div>
+
+          <script src="Australia_map.js"></script>
+      </div>
+    </div> <!-- this is the end of a row "pure-g"-->
   <!-- ---------------------------------------------------------------------------------------------------------- -->
     <!-- if more rows of visuals are needed, it can be set in here:-->
 
