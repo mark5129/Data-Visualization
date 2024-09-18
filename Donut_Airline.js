@@ -13,8 +13,8 @@ const donut_a ={
             "bind" : {
             "input" : "range",
             "min" : 0 ,
-            "max" : 440 ,
-            "step" : 10 ,
+            "max" : 17000 ,
+            "step" : 500 ,
             "name" : "Min Number of Flights: "
             }
             }
@@ -32,6 +32,12 @@ const donut_a ={
             "as": "AirlineWithCount"
           },
     ],
+    "selection" : {
+        "Airline_highlight" : {
+            "type" : "multi",
+            "fields" : [ "AirlineWithCount" ],
+            "bind" : "legend"}
+        },
     "mark": {"type": "arc", "innerRadius": 100},
     "encoding": {
         "theta": {"field": "FlightCount", 
@@ -41,6 +47,12 @@ const donut_a ={
             "type": "nominal",
             "title": "International Flights + Airline",
             "sort": {"field": "FlightCount", "order": "descending"}
+        },
+        "opacity" : {
+            "condition" : { 
+                "selection" : "Airline_highlight","value" : 1 
+            },
+                "value" : 0.2
         },
         "tooltip": [
             {"field": "Airline", "type": "nominal", "title": "Airline"},
