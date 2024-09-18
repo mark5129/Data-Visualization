@@ -35,7 +35,7 @@ const spec = {
                     "Western Australia (WA)", 
                     "External Territory (ET)"
                     ],
-                "name" : "State Selection: "
+                "title" : "State Selection: "
             }
         },
     ],
@@ -52,17 +52,18 @@ const spec = {
     "encoding" : {
         "x" : {
             "field" : "AUS_Population",
-            "type" : "quantitative","title" : "Population",
+            "type" : "quantitative",
+            "title" : "Population",
             "axis" : { "tickCount" : 7 },
-        },
+            },
         "y" : {
             "field" : "All_Flights",
-            "type" : "quantitative","title" : "Total Flights",
+            "type" : "quantitative",
+            "title" : "Total Flights",
             "axis" : { "tickCount" : 7 },
-            }
-        },
+            },
         "color" : {
-            "field" : "Australia_City",
+            "field" : "Australian_City",
             "type" : "nominal",
             "scale" : {
                 "domain" : [
@@ -97,7 +98,8 @@ const spec = {
         },
         "opacity" : {
             "condition" : { 
-                "selection" : "State_highlight","value" : 0.6 },
+                "selection" : "State_highlight","value" : 0.6 
+            },
                 "value" : 0.2
         },
         "size" : {
@@ -113,11 +115,13 @@ const spec = {
             { "field" : "Australian_City","type" : "nominal" },
             { "field" : "AUS_State", "type" : "nominal" },
             { "field" : "AUS_Population","type" : "quantitative","format" : "," },
-            { "field" : "ALL_Flights","type" : "quantitative","format" : "," },
+            { "field" : "All_Flights","type" : "quantitative","format" : "," },
             { "field" : "Total_Seats","type" : "quantitative","format" : "," },
             {"field" : "State_airports","type" : "quantitative","format" : ".2f"}
             ]
-    };
+    }
+};
+
     vegaEmbed('#Bubblevis2', spec);
 
 
