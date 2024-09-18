@@ -4,26 +4,42 @@ const chart1Spec = {
     "height" : 300 ,
     "description": "A simple horizontal bar chart with embedded data.",
     "data": {
-        "url" : "https://raw.githubusercontent.com/mark5129/Data-Visualization/main/Flight_Data_2019.csv"
+        "url" : "https://raw.githubusercontent.com/mark5129/Data-Visualization/main/Flight_Data_AUS_city.csv"
     },
+    "params" : [
+        {
+            "name" : "Flights_selection",
+            "value" : 100000 ,
+            "bind" : {
+            "input" : "range",
+            "min" : 3000 ,
+            "max" : 83000 ,
+            "step" : 10000 ,
+            "name" : "Max Number of flights: "
+            }
+            }
+    ],
+    "transform" : [
+        { "filter" : "datum.All_Flights < Flights_selection" },
+        ],
     "mark": "bar",
     "encoding": {
         "y": {
             "field": "Australian_City", 
             "type": "nominal", 
             "axis": {"labelAngle": 0},
-            "label" : "Australian City"},
+            "title" : "Australian City"
+            },
         "x": {
             "field": "All_Flights", 
             "type": "quantitative",
-            "label" : "Number of Flights",
-            "axis" : { "tickCount" : 7 },
-            "scale" : { "type" : "log",
-                    "domain" : [ 1 , 100000 ]}
+            "title" : "Number of International Flights pr. City",
+            "axis" : { "tickCount" : 5 }
             },
         "color" : {
-            "field" : "Australia_City",
+            "field" : "Australian_City",
             "type" : "nominal",
+            "legend" : null,
             "scale" : {
                 "domain" : [
                     "Adelaide", 
@@ -56,9 +72,10 @@ const chart1Spec = {
             }
         },
         "tooltip" : [
-            { "field" : "All_Flights","type" : "quantitative","format" : "," }
+            { "field" : "All_Flights","type" : "quantitative","format" : "," },
+            { "field" : "AUS_State","type" : "nominal"}
             ]
-    }
+        },
 };
 
 // Embed the chart into the specified container

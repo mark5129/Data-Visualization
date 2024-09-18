@@ -1,16 +1,15 @@
-const spec = {
-    "$schema" : "https://vega.github.io/schema/vega-lite/v5.json"
-    ,
-    "width" : 500 ,
-    "height" : 400 ,
-    "title" : "Flights in Australia"
-    ,
+const spec2 = {
+    "$schema" : "https://vega.github.io/schema/vega-lite/v5.json",
+    "width" : 400 ,
+    "height" : 300 ,
+    //"title" : "Flights in Australia",
     "data" : {
     "url" : "https://raw.githubusercontent.com/mark5129/Data-Visualization/main/Flight_Data_AUS_city.csv"
     },
     "params" : [
         {
             "name" : "State_selection",
+            "title" : "State Selection: ",
             "bind" : {
                 "input" : "select",
                 "options" : [
@@ -35,7 +34,6 @@ const spec = {
                     "Western Australia (WA)", 
                     "External Territory (ET)"
                     ],
-                "title" : "State Selection: "
             }
         },
     ],
@@ -54,32 +52,33 @@ const spec = {
             "field" : "AUS_Population",
             "type" : "quantitative",
             "title" : "Population",
-            "axis" : { "tickCount" : 7 },
+            "axis" : { "tickCount" : 4 },
+            "scale" : { "type" : "log" ,
+                domain : [ 1000 , 10000000 ]
+                }
             },
         "y" : {
             "field" : "All_Flights",
             "type" : "quantitative",
             "title" : "Total Flights",
-            "axis" : { "tickCount" : 7 },
+            "axis" : { "tickCount" : 4 },
+            "scale" : { "type" : "log" ,
+                domain : [ 10 , 100000 ]
+                }
             },
         "color" : {
-            "field" : "Australian_City",
+            "field" : "AUS_State",
             "type" : "nominal",
             "scale" : {
                 "domain" : [
-                    "Adelaide", 
-                    "Brisbane", 
-                    "Cairns", 
-                    "Canberra", 
-                    "Darwin", 
-                    "Gold Coast", 
-                    "Melbourne", 
-                    "Newcastle", 
-                    "Perth", 
-                    "Port Hedland", 
-                    "Sydney", 
-                    "Sunshine Coast", 
-                    "Norfolk Island"],
+                    "South Australia (SA)", 
+                    "Queensland (QLD)", 
+                    "Australian Capital Territory (ACT)", 
+                    "Northern Territory (NT)", 
+                    "Victoria (VIC)", 
+                    "New South Wales (NSW)", 
+                    "Western Australia (WA)", 
+                    "External Territory (ET)"],
                 "range" : [
                     "#a6cee3", 
                     "#1f78b4", 
@@ -88,12 +87,8 @@ const spec = {
                     "#fb9a99", 
                     "#e31a1c", 
                     "#fdbf6f", 
-                    "#ff7f00", 
-                    "#cab2d6", 
-                    "#6a3d9a", 
-                    "#ffff99", 
-                    "#b15928", 
-                    "#8dd3c7"]
+                    "#ff7f00"  
+                    ]
             }
         },
         "opacity" : {
@@ -105,6 +100,7 @@ const spec = {
         "size" : {
             "field" : "State_airports",
             "type" : "quantitative",
+            "title" : "Number of Airports pr. state",
             "scale" : {
                 "type" : "threshold",
                 "domain" : [ 1, 2, 3, 4 ],
@@ -117,11 +113,11 @@ const spec = {
             { "field" : "AUS_Population","type" : "quantitative","format" : "," },
             { "field" : "All_Flights","type" : "quantitative","format" : "," },
             { "field" : "Total_Seats","type" : "quantitative","format" : "," },
-            {"field" : "State_airports","type" : "quantitative","format" : ".2f"}
+            {"field" : "State_airports","type" : "quantitative"}
             ]
     }
 };
 
-    vegaEmbed('#Bubblevis2', spec);
+    vegaEmbed('#Bubblevis2', spec2);
 
 
