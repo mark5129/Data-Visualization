@@ -15,13 +15,13 @@ const donut_a ={
             "min" : 0 ,
             "max" : 440 ,
             "step" : 10 ,
-            "name" : "Min Number of Routes: "
+            "name" : "Min Number of Flights: "
             }
             }
     ],
     "transform": [
         {
-        "aggregate": [{"op": "count", "as": "FlightCount"}],
+        "aggregate": [{"op": "sum", "field": "All_Flights", "as": "FlightCount"}],
         "groupby": ["Airline"]
         },
         {
@@ -39,7 +39,7 @@ const donut_a ={
         },
         "color": {"field": "AirlineWithCount", 
             "type": "nominal",
-            "title": "Routes + Airline",
+            "title": "International Flights + Airline",
             "sort": {"field": "FlightCount", "order": "descending"}
         },
         "tooltip": [
