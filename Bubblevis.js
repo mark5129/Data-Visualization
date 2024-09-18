@@ -68,7 +68,8 @@ const spec = {
             "field" : "Confirmed",
             "type" : "quantitative","title" : "Confirmed Cases",
             "axis" : { "tickCount" : 7 },
-            "scale" : { "type" : "log","domain" : [ 1 , 10000000 ]}
+            "scale" : { "type" : "log",
+                "domain" : [ 1 , 10000000 ]}
         },
         "y" : {
             "field" : "Deaths",

@@ -1,7 +1,7 @@
 const chart1Spec = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width" : 500 ,
-    "height" : 400 ,
+    "height" : 300 ,
     "description": "A simple horizontal bar chart with embedded data.",
     "data": {
         "url" : "https://raw.githubusercontent.com/mark5129/Data-Visualization/main/Flight_Data_2019.csv"
@@ -16,7 +16,10 @@ const chart1Spec = {
         "x": {
             "field": "All_Flights", 
             "type": "quantitative",
-            "label" : "Number of Flights"}
+            "label" : "Number of Flights",
+            "scale" : { "type" : "log",
+                    "domain" : [ 1 , 100000 ]}
+            }
     },
     "color" : {
             "field" : "Australia_City",
