@@ -1,24 +1,59 @@
 const chart1Spec = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "A simple bar chart with embedded data.",
+    "width" : 500 ,
+    "height" : 400 ,
+    "description": "A simple horizontal bar chart with embedded data.",
     "data": {
-        "values": [
-            {"category": "A", "value": 28},
-            {"category": "B", "value": 55},
-            {"category": "C", "value": 43},
-            {"category": "D", "value": 91},
-            {"category": "E", "value": 81},
-            {"category": "F", "value": 53},
-            {"category": "G", "value": 19},
-            {"category": "H", "value": 87}
-        ]
+        "url" : "https://raw.githubusercontent.com/mark5129/Data-Visualization/main/Flight_Data_2019.csv"
     },
     "mark": "bar",
     "encoding": {
-        "x": {"field": "category", "type": "nominal", "axis": {"labelAngle": 0}},
-        "y": {"field": "value", "type": "quantitative"}
+        "y": {
+            "field": "Australian_City", 
+            "type": "nominal", 
+            "axis": {"labelAngle": 0},
+            "label" : "Australian City"},
+        "x": {
+            "field": "All_Flights", 
+            "type": "quantitative",
+            "label" : "Number of Flights"}
+    },
+    "color" : {
+            "field" : "Australia_City",
+            "type" : "nominal",
+            "scale" : {
+                "domain" : [
+                    "Adelaide", 
+                    "Brisbane", 
+                    "Cairns", 
+                    "Canberra", 
+                    "Darwin", 
+                    "Gold Coast", 
+                    "Melbourne", 
+                    "Newcastle", 
+                    "Perth", 
+                    "Port Hedland", 
+                    "Sydney", 
+                    "Sunshine Coast", 
+                    "Norfolk Island"],
+                "range" : [
+                    "#a6cee3", 
+                    "#1f78b4", 
+                    "#b2df8a", 
+                    "#33a02c", 
+                    "#fb9a99", 
+                    "#e31a1c", 
+                    "#fdbf6f", 
+                    "#ff7f00", 
+                    "#cab2d6", 
+                    "#6a3d9a", 
+                    "#ffff99", 
+                    "#b15928", 
+                    "#8dd3c7"]
+            }
     }
 };
 
 // Embed the chart into the specified container
 vegaEmbed('#barchart', chart1Spec);
+
