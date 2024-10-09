@@ -6,7 +6,7 @@ const chart1Spec = {
     "data": {
         "url" : "https://raw.githubusercontent.com/mark5129/Data-Visualization/main/Flight_Data_AUS_city.csv"
     },
-    "params" : [
+    /* "params" : [
         {
             "name" : "Flights_selection",
             "value" : 100000 ,
@@ -18,9 +18,10 @@ const chart1Spec = {
             "name" : "Max Number of flights: "
             }
             }
-    ],
+    ], */
     "transform" : [
-        { "filter" : "datum.All_Flights < Flights_selection" },
+        /* { "filter" : "datum.All_Flights < Flights_selection" }, */
+        { "filter": "datum.All_Flights >= 500" } // Filter out cities with less than 500 flights
         ],
     "mark": "bar",
     "encoding": {
@@ -28,7 +29,8 @@ const chart1Spec = {
             "field": "Australian_City", 
             "type": "nominal", 
             "axis": {"labelAngle": 0},
-            "title" : "Australian City"
+            "title" : "Australian City",
+            "sort": "-x"
             },
         "x": {
             "field": "All_Flights", 

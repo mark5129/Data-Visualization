@@ -2,7 +2,7 @@ const map_projection = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json", 
     "width": 800,
     "height": 450,
-    "title": "Number of flights going from Australian cities",
+    //"title": "Number of flights going from Australian cities",
     "projection": {"type": "equalEarth"}, 
     "layer": [
         {
@@ -20,6 +20,14 @@ const map_projection = {
             "data": {
                 "url": "https://raw.githubusercontent.com/mark5129/Data-Visualization/main/Flight_Data_AUS_city.csv"
             },
+            "transform" : [
+            { "filter": "datum.All_Flights >= 500" }, // Filter out cities with less than 500 flights
+            {
+                // Calculate number of flights per 1000 population
+                "calculate": "round((datum.All_Flights / (datum.AUS_Population / 1000)) * 100) / 100",
+                "as": "Flights_per_1000_population"
+            }
+        ],
             "mark": {
                 "type": "circle", 
                 "tooltip": {
@@ -36,11 +44,12 @@ const map_projection = {
                     "type": "quantitative"
                 },
                 "size": {
-                    "field": "All_Flights",
+                    "field": "Flights_per_1000_population",
                     "type": "quantitative",
+                    "title" : "Flights pr. 1000 population",
                     "scale" : {
                         "type" : "linear",
-                        "domain" : [ 0, 20000, 40000, 60000, 80000 ],
+                        "domain" : [ 0, 5, 10, 20 ],
                         "range" : [ 100 , 400 , 700 , 1000 , 1300]},
                 },
                 "tooltip": [
@@ -48,10 +57,38 @@ const map_projection = {
                     {"field": "AUS_State", "type": "nominal", "title": "Australian State"},
                     {"field": "AUS_Population", "type": "quantitative", "title": "Population", "format": ","},
                     {"field": "All_Flights", "type": "quantitative", "title": "Total Flights", "format": ","},
-                    {"field": "Total_Seats", "type": "quantitative", "title": "Total Seats", "format": ","}
+                    {"field": "Flights_per_1000_population", "type": "quantitative", "title": "Flights pr. 1000 pop.", "format": ","}
                 ]
             }
-        } 
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/mark5129/Data-Visualization/main/Flight_Data_AUS_city.csv"
+            },
+            "transform" : [
+            { "filter": "datum.All_Flights >= 500" } // Filter out cities with less than 500 flights
+            ],
+            "mark": {
+                "type": "text",
+                "dy": -15,  // Adjust the vertical offset of the text
+                "fontSize": 10,
+                "align": "center"
+            },
+            "encoding": {
+                "longitude": {
+                    "field": "Longitude", 
+                    "type": "quantitative"
+                },
+                "latitude": {
+                    "field": "Latitude", 
+                    "type": "quantitative"
+                },
+                "text": {
+                    "field": "Australian_City", 
+                    "type": "nominal"
+                },
+            } 
+        }
     ]
 };
 

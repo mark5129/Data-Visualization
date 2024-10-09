@@ -1,7 +1,7 @@
 const spec2 = {
     "$schema" : "https://vega.github.io/schema/vega-lite/v5.json",
-    "width" : 300 ,
-    "height" : 300 ,
+    "width" : 400 ,
+    "height" : 400 ,
     //"title" : "Flights in Australia",
     "data" : {
     "url" : "https://raw.githubusercontent.com/mark5129/Data-Visualization/main/Flight_Data_AUS_city.csv"
